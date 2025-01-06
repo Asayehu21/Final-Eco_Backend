@@ -15,10 +15,13 @@ from django.shortcuts import render
 from .models import Product, Cart, CartItem, Transaction
 from .serializers import ProductSerializer, DetailedProductSerializer, CartSerializer, CartItemSerializer, SimpleCartSerializer, UserSerializer
 from rest_framework import status
+from django.conf import settings
 
 # Create your views here.
 
-BASE_URL = "http://localhost:5173"
+BASE_URL = settings.REACT_BASE_URL
+
+# BASE_URL = "http://localhost:5173"
 
 
 @api_view(["GET"])

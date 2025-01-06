@@ -13,6 +13,12 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 
+import os
+from dotenv import load_dotenv
+
+#Load environment variables from .env file
+load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,6 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-a01yfucxl&!s5%t(^^#+l!dzy!)%+_s+1wb1bg%6g=)5!m4^o_'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -47,6 +54,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -54,7 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
+    
 ]
 
 
@@ -125,6 +134,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_URL = 'img/'
 MEDIA_ROOT = BASE_DIR/"media"
 
@@ -156,4 +167,7 @@ SIMPLE_JWT = {
 }
 
 FLUTTERWAVE_SECRET_KEY = "FLWSECK_TEST-dc068d5fbdf5d96c5bfc0b0651f9d241-X"
+
+
+REACT_BASE_URL = os.getenv("REACT_BASE_URL", "http://localhost:5173")
 
