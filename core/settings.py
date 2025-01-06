@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'myapp',
     'myshop_app',
     'rest_framework',
+    'rest_framework_simplejwt',
     'corsheaders',
 ]
 

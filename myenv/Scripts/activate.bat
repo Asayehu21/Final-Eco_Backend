@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\Ase\Desktop\React\Final-Project\E-commerce\Django_Backend\myenv
+set VIRTUAL_ENV=C:\Users\Ase\Desktop\React\Final-Project\E-commerce\final-eco_backend\myenv
 
 if not defined PROMPT set PROMPT=$P$G
 
