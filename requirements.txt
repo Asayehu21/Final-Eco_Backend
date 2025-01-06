@@ -11,5 +11,5 @@ gunicorn==23.0.0
 packaging==24.2
 promise==2.3
 python-dotenv==1.0.1
-rest_framework_simplejwt==5.2.2
+rest_framework_simplejwt==0.0.2
 whitenoise==6.8.2
