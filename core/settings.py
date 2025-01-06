@@ -35,7 +35,13 @@ DEBUG = True
 
 # APPEND_SLASH = False
 
-ALLOWED_HOSTS = ["https://bulehoraa-eco.onrender.com", "localhost", "127.0.0.1"]
+# ALLOWED_HOSTS = ["https://bulehoraa-eco.onrender.com", "localhost", "127.0.0.1"]
+
+ALLOWED_HOSTS = [
+    'bulehoraa-eco.onrender.com',
+    'localhost',  # Add this if you're testing locally
+    '127.0.0.1',  # Add this if you're testing locally
+]
 
 
 # Application definition
