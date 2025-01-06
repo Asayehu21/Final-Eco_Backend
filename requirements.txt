@@ -1,6 +1,7 @@
 aniso8601==9.0.1
 asgiref==3.8.1
 Django==4.2
+djangorestframework==3.14.0  # Add this line
 graphene==3.3
 graphene-django==3.2.2
 graphql-core==3.2.3
