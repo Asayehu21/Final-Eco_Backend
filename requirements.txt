@@ -11,7 +11,7 @@ gunicorn==23.0.0
 packaging==24.2
 promise==2.3
 python-dotenv==1.0.1
-rest_framework_simplejwt==5.2.2  # Add this line
+rest_framework_simplejwt==5.3.1  # Update to the latest version  # Add this line
 six==1.16.0
 sqlparse==0.5.0
 text-unidecode==1.3
