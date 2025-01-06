@@ -1,6 +1,6 @@
 #!/user/bin/env bash
 
-source /path/to/your/venv/bin/activate
+.\opt\render\project\src\.myvenv\Scripts\activate
 set -o errexit #exit on error
 
 pip install -r requirements.txt
