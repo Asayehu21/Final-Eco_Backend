@@ -1,6 +1,9 @@
 from django.db import models
 from django.utils.text import slugify
 from django.conf import settings
+from django.contrib.auth.models import User
+from myapp.models import CustomUser
+
 
 # Create your models here.
 
@@ -71,3 +74,18 @@ class Transaction(models.Model):
 
     def __str__(self):
         return f"Transaction {self.ref} - {self.status}"
+    
+
+
+class ShippingAddress(models.Model):
+    # user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True, null=True)
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    address_line1 = models.CharField(max_length=255)
+    address_line2 = models.CharField(max_length=255, blank=True)
+    city = models.CharField(max_length=100)
+    state = models.CharField(max_length=100)
+    # postal_code = models.CharField(max_length=20)
+    # country = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.user.username}'s Shipping Address"

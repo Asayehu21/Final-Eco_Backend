@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Product, Cart, CartItem
 from django.contrib.auth import get_user_model
+from .models import ShippingAddress
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -103,3 +104,8 @@ class UserSerializer(serializers.ModelSerializer):
             cartitems = CartItem.objects.filter(cart__user=user, cart__paid=True)[:10]
             serializer = NewCartItemSerializer(cartitems, many=True)
             return serializer.data
+        
+class ShippingAddressSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ShippingAddress
+        fields = '__all__'

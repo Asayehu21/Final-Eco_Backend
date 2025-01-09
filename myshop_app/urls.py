@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from .views import ShippingAddressView
+
 
 urlpatterns = [
     path("products", views.products, name="products"),
@@ -14,6 +16,7 @@ urlpatterns = [
     path("user_info", views.user_info, name="user_info"),
     path("initiate_payment/", views.initiate_payment, name="initiate_payment"),
     path("payment_callback", views.payment_callback, name="payment_callback"),
+    path('api/shipping/', ShippingAddressView.as_view(), name='shipping-address'),
 ]
 
 

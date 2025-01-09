@@ -6,16 +6,18 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from django.conf import settings
-from .models import Cart, Transaction
+from .models import Cart, Transaction, ShippingAddress
+from rest_framework import generics
 
 # Set up logger
 logger = logging.getLogger(__name__)
 from django.shortcuts import render
 # from rest_framework.decorators import api_view, permission_classes
 from .models import Product, Cart, CartItem, Transaction
-from .serializers import ProductSerializer, DetailedProductSerializer, CartSerializer, CartItemSerializer, SimpleCartSerializer, UserSerializer
+from .serializers import ProductSerializer, DetailedProductSerializer, CartSerializer, CartItemSerializer, SimpleCartSerializer, UserSerializer, ShippingAddressSerializer
 from rest_framework import status
 from django.conf import settings
+
 
 # Create your views here.
 
@@ -314,3 +316,8 @@ def payment_callback(request):
     else:
         #Payment was not successful
         return Response({"message":"Payment was not successfull! "}, status=400)
+    
+
+class ShippingAddressView(generics.ListCreateAPIView):
+    queryset = ShippingAddress.objects.all()
+    serializer_class = ShippingAddressSerializer
