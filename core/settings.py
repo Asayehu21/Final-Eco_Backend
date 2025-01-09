@@ -142,11 +142,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_URL = '/img/'
 MEDIA_ROOT = BASE_DIR/"media"
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -156,12 +158,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "myapp.CustomUser"
 
 
-CORS_ALLOWED_ORIGINS = ["*"]
-# "http://localhost:5173",
+CORS_ALLOWED_ORIGINS = [
+"http://localhost:5173",
 # "http://localhost:5174",
 # "http://localhost:5175",
 
-# ]
+]
 
 CORS_ALLOW_ALL_ORIGINS = True
 
