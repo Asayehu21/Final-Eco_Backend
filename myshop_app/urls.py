@@ -19,9 +19,11 @@ urlpatterns = [
     path("initiate_payment/", views.initiate_payment, name="initiate_payment"),
     path("payment_callback", views.payment_callback, name="payment_callback"),
     path('api/shipping/', ShippingAddressView.as_view(), name='shipping-address'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+# + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 #fetching all_products: http://127.0.0.1:8000/products
+
 
 
