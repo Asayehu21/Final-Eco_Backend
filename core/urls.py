@@ -16,6 +16,10 @@ from django.conf.urls.static import static
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 
+admin.site.site_header = 'Bule Hora Shop Admin Dashboard'
+admin.site.site_title = 'bule hora shop'
+admin.site.index_title = 'Bule Hora Shop Administration'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("myapp.urls")),
