@@ -7,6 +7,8 @@ from rest_framework.decorators import api_view
 # from rest_framework.permissions import IsAuthenticated
 from .serializers import CustomUserSerializer
 # UserSerializer, 
+# from .serializers import UserSerializer
+# from rest_framework.permissions import IsAuthenticated
 
 
 class RegisterUserView(APIView):
@@ -53,3 +55,11 @@ def update_user_profile(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     except CustomUserSerializer.DoesNotExist:
         return Response({"detail": "Profile not found."}, status=status.HTTP_404_NOT_FOUND)
+
+
+# class UserProfileView(APIView):
+#     permission_classes = [IsAuthenticated]
+
+#     def get(self, request):
+#         serializer = UserSerializer(request.user)
+#         return Response(serializer.data)

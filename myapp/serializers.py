@@ -11,7 +11,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
         model = CustomUser
         fields = [
             'username', 'email', 'password', 'confirm_password',
-            'first_name', 'last_name', 'city', 'state', 'address', 'phone'
+            'first_name', 'last_name', 'city', 'state', 'address', 'phone', 'role'
         ]
 
     def validate(self, data):
@@ -52,6 +52,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = get_user_model()
         fields = [
             'id', 'username', 'first_name', 'last_name',
-            'email', 'city', 'state', 'address', 'phone'
+            'email',  'city', 'state', 'address', 'phone', 'role' 
+            
         ]
-        read_only_fields = ['id', 'email']  # Make email and ID read-only
+        read_only_fields = ['id', 'email', 'role' ]  # Make email and ID read-only

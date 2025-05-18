@@ -207,12 +207,14 @@ def initiate_payment(request):
 
             # Tax percentage
             tax_percentage = Decimal("0.15")
+            commission = Decimal("0.02")
             
             # Calculate tax
             tax = amount * tax_percentage
+            com = amount * commission
 
             # Calculate total amount (items cost + tax)
-            total_amount = amount + tax
+            total_amount = amount + tax + com
 
             currency = "ETB"
             redirect_url = f"{BASE_URL}/payment_status/"
